@@ -19,12 +19,12 @@ public class CarSpawner : MonoBehaviour
 
     private void Spawn()
     {
-        _carPrefab.GetComponent<CarMovement>().Direction = _direction;
         GameObject carObject = Instantiate(
             _carPrefab,
             transform.position,
             Quaternion.identity
         );
+        carObject.GetComponent<CarMovement>().Direction = _direction;
         Destroy(carObject, 10f);
     }
 }

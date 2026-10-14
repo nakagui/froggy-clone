@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float _speed = 3f;
     private Rigidbody2D _rigidbody;
     private PlayerInputHandler _input;
+    private bool _isDead = false;
 
     private void Awake()
     {
@@ -21,8 +22,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (_isDead)
+        {
+            return;
+        }
+
         if (collision.CompareTag("Car"))
         {
+            _isDead = true;
             Destroy(gameObject);
             PlayerSpawn playerSpawn = FindAnyObjectByType<PlayerSpawn>();
             playerSpawn.Spawn();
