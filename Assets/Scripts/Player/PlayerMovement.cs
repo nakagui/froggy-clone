@@ -18,4 +18,12 @@ public class PlayerMovement : MonoBehaviour
     {
         _rigidbody.linearVelocity = _input.MoveInput * _speed;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Car"))
+        {
+            Debug.Log("Car");
+        }
+    }
 }
