@@ -25,6 +25,6 @@ public class CarSpawner : MonoBehaviour
             transform.position,
             Quaternion.identity
         );
-        Destroy(carObject, 15f);
+        Destroy(carObject, 10f);
     }
 }

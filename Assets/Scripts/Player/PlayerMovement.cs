@@ -23,7 +23,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Car"))
         {
-            Debug.Log("Car");
+            Destroy(gameObject);
+            PlayerSpawn playerSpawn = FindAnyObjectByType<PlayerSpawn>();
+            playerSpawn.Spawn();
         }
     }
 }
